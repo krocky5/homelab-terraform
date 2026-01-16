@@ -1,0 +1,4 @@
+proxmox_api_url  = "https://your-proxmox-host:8006/api2/json"
+proxmox_user     = "root@pam"
+proxmox_password = "your-password-here"
+ssh_pub_key      = "ssh-rsa AAAA... your-key-here"
