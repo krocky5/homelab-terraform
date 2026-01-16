@@ -1,0 +1,65 @@
+# Terraform files
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+*.tfvars
+*.tfvars.json
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# Sensitive files
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+id_rsa*
+*.pub
+**/*password*
+**/*secret*
+**/*token*
+.env
+.env.*
+
+# Cloud-init files (may contain SSH keys or passwords)
+cloud-init/*.yaml
+cloud-init/*.yml
+user-data.txt
+
+# Kubernetes configs
+kubeconfig
+*.kubeconfig
+kube_config_*
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+*.swp
+*.swo
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+*.sublime-*
+
+# Logs
+*.log
+
+# Backup files
+*.bak
+*.backup

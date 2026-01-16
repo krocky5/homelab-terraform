@@ -1,0 +1,16 @@
+#cloud-config
+hostname: k3s-master-1
+manage_etc_hosts: true
+
+ssh-authorized-keys:
+      - ${SSH_KEY}
+
+network:
+  version: 2
+  ethernets:
+    eth0:
+      dhcp4: no
+      addresses: [192.168.4.180/24]
+      gateway4: 192.168.4.1
+      nameservers:
+        addresses: [192.168.4.1,8.8.8.8]
