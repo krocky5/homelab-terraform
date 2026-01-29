@@ -1,0 +1,24 @@
+# Proxmox Configuration
+proxmox_api_url  = "https://your-proxmox-host:8006/api2/json"
+proxmox_user     = "root@pam"
+proxmox_password = "your-proxmox-password"
+
+# VM Configuration
+target_node   = "master"
+template_name = "ubuntu-image"
+storage_pool  = "local-zfs"
+
+# SSH Configuration
+vm_user              = "ubuntu"
+vm_password          = "your-vm-password"
+ssh_pub_key          = "ssh-rsa AAAAB3NzaC1yc2E... your-public-key"
+ssh_private_key_path = "~/.ssh/id_rsa_k3s"
+
+# Network Configuration
+pihole_ip  = "192.168.4.10"
+gateway    = "192.168.4.1"
+nameserver = "8.8.8.8 1.1.1.1"
+
+# PiHole Configuration
+pihole_password = "your-secure-pihole-password"
+timezone        = "America/New_York"

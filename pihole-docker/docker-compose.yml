@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "80:80/tcp"
+    environment:
+      TZ: '${TZ}'
+      WEBPASSWORD: '${WEBPASSWORD}'
+      FTLCONF_LOCAL_IPV4: '${PIHOLE_IP}'
+      # Optional: uncomment if you want to use DHCP
+      # DHCP_ACTIVE: 'true'
+      # DHCP_START: '192.168.4.100'
+      # DHCP_END: '192.168.4.200'
+      # DHCP_ROUTER: '192.168.4.1'
+      # DNS1: '8.8.8.8'
+      # DNS2: '8.8.4.4'
+    volumes:
+      - './etc-pihole:/etc/pihole'
+      - './etc-dnsmasq.d:/etc/dnsmasq.d'
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    dns:
+      - 127.0.0.1
+      - 8.8.8.8
