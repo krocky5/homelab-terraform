@@ -40,12 +40,12 @@ tar xzf ./actions-runner-linux-x64-${runner_version}.tar.gz
 rm -f actions-runner-linux-x64-${runner_version}.tar.gz
 
 echo "==> Getting registration token from GitHub..."
-REG_TOKEN=$$(curl -s -X POST \
+REG_TOKEN=$(curl -s -X POST \
   -H "Authorization: token ${github_pat}" \
   -H "Accept: application/vnd.github+json" \
   "https://api.github.com/repos/${github_repo}/actions/runners/registration-token" | jq -r .token)
 
-if [ -z "$$REG_TOKEN" ] || [ "$$REG_TOKEN" = "null" ]; then
+if [ -z "$REG_TOKEN" ] || [ "$REG_TOKEN" = "null" ]; then
   echo "ERROR: Failed to get registration token. Check your PAT and repo name (format: owner/repo)."
   exit 1
 fi
@@ -53,7 +53,7 @@ fi
 echo "==> Configuring runner..."
 ./config.sh \
   --url "https://github.com/${github_repo}" \
-  --token "$$REG_TOKEN" \
+  --token "$REG_TOKEN" \
   --unattended \
   --labels "self-hosted,homelab,linux,x64" \
   --name "${runner_name}" \

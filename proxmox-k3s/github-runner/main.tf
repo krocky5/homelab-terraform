@@ -62,7 +62,7 @@ resource "proxmox_vm_qemu" "github_runner" {
   onboot = true
 
   lifecycle {
-    ignore_changes = [network]
+    ignore_changes = [network, disk, tags, bootdisk]
   }
 
   provisioner "file" {
